@@ -136,7 +136,7 @@ function nav() {
           <a class="icon-btn" href="${C.COMPANY.phoneHref}" aria-label="Call ${C.COMPANY.phone}">${ICON.phone}</a>
           <button class="icon-btn nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span class="lines"><span class="line"></span><span class="line"></span><span class="line"></span></span></button>
         </div>
-        <div class="menu" id="menu">
+        <div class="menu" id="menu" data-lenis-prevent>
           <div class="menu__items">${items}
           </div>
           <a class="menu__cta" href="${C.BOOKING}" target="_blank" rel="noopener">${img('lg-gv-2', 'Large Studio Gardenview at Amber Studios', { sizes: '640px' })}<span>Book now</span>${ICON.arrowUpRight}</a>
@@ -213,6 +213,7 @@ function footer() {
       </div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
   <script id="respondio__growth_tool" src="https://cdn.respond.io/widget/widget.js?wId=2b9e4c75-b8ee-40a5-9daf-ec8e8d475d11" defer></script>
 </body>

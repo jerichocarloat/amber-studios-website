@@ -9,7 +9,7 @@ no framework, no build step required to deploy.
 ```
 index.html … 21 static pages (home, studios, 6 studio pages, services, FAQ, legal …)
 assets/css/style.css   design system (tokens, components, motion primitives)
-assets/js/main.js      motion & interactions (word reveals, counters, marquees, menu, FAQ, parallax)
+assets/js/main.js      motion & interactions (word reveals, counters, marquees, menu, FAQ, parallax, Lenis smooth scroll)
 assets/img/            WebP images from the original site (600 / 1000 / 1600 px)
 assets/logo/           new logo: mark.svg, mark-line.svg, logo.svg, favicon.svg
 build/content.js       all site content (taken from amberstudios.hu)
@@ -42,4 +42,5 @@ Then open <http://localhost:8765>.
 - Google reviews widget: Elfsight (home page)
 - Chat / 24-7 online reception: respond.io widget (all pages)
 - Airport transfer: Welcome Pickups
+- Smooth scrolling: [Lenis](https://lenis.darkroom.engineering/) 1.3.11 from jsDelivr (same library the Stayscape reference uses); the site falls back to native scrolling if it does not load
 - Map: Google Maps embed of Veres Pálné utca 26; the "Open in Maps" button links to the Amber Studios My Maps view with both properties

@@ -106,6 +106,12 @@ body::before{
 .prose strong{color:var(--text);font-weight:500;}
 @media (max-width:767.98px){.prose p,.prose li{font-size:16px;}}
 
+/* ---------- smooth scroll (Lenis) ---------- */
+html.lenis,html.lenis body{height:auto;}
+.lenis.lenis-smooth{scroll-behavior:auto !important;}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain;}
+.lenis.lenis-stopped{overflow:hidden;}
+
 /* ---------- layout ---------- */
 .container{width:100%;max-width:1632px;margin:0 auto;padding:0 var(--gutter);}
 .content{padding:0 var(--inner);}
@@ -132,23 +138,24 @@ body::before{
   position:relative;display:inline-flex;align-items:center;gap:16px;height:52px;
   padding:4px 20px 4px 4px;border-radius:var(--r-pill);overflow:hidden;
   background:var(--dark);color:#fff;font-size:16px;font-weight:500;line-height:1.28;white-space:nowrap;
-  transition:background-color .5s var(--ease-swap),color .5s var(--ease-swap),transform .5s var(--ease-out);
+  transition:background-color .5s var(--ease-swap),color .5s var(--ease-swap);
 }
+/* Hover (as on Stayscape): the icon slides to the far end, the text slides
+   under it to the 20px edge, and the pill takes the accent colour. */
 .btn .btn__icon{
-  width:44px;height:44px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;overflow:hidden;
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;
   background:#fff;color:var(--dark);
-  transition:background-color .5s var(--ease-swap),color .5s var(--ease-swap),transform .5s var(--ease-out);
+  transition:transform .8s var(--ease-out),background-color .5s var(--ease-swap),color .5s var(--ease-swap);
 }
-.btn .btn__icon svg{width:16px;height:16px;transition:transform .5s var(--ease-out);}
-.btn .btn__text{padding-bottom:1px;}
-.btn:hover{background:var(--dark-hover);color:#fff;}
-.btn:hover .btn__icon{background:var(--accent);color:#fff;}
-.btn:hover .btn__icon svg{transform:translate(1.5px,-1.5px);}
-.btn:active{transform:scale(.98);}
+.btn .btn__icon svg{width:16px;height:16px;}
+.btn .btn__text{padding-bottom:1px;transition:transform .8s var(--ease-out);}
+.btn:hover{background:var(--accent-deep);color:#fff;}
+.btn:hover .btn__icon{transform:translateX(var(--swap,0px));background:#fff;color:var(--accent-deep);}
+.btn:hover .btn__text{transform:translateX(calc(-1 * var(--tswap,44px)));}
 .btn--white{background:#fff;color:var(--text);}
 .btn--white .btn__icon{background:var(--dark);color:#fff;}
-.btn--white:hover{background:#f4f4f4;color:var(--text);}
-.btn--white:hover .btn__icon{background:var(--accent);color:#fff;}
+.btn--white:hover{background:var(--accent-deep);color:#fff;}
+.btn--white:hover .btn__icon{background:#fff;color:var(--accent-deep);}
 .btn-sm{
   display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:var(--r-pill);
   background:var(--dark);color:#fff;font-size:16px;font-weight:500;line-height:1.28;
@@ -290,8 +297,10 @@ body::before{
 .intro{position:relative;padding:16px 0;min-height:100vh;min-height:100svh;overflow:hidden;color:#fff;display:flex;flex-direction:column;}
 .intro__bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
 .intro__bg img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;will-change:transform;}
-.intro__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,30,30,.4) 0%,rgba(30,30,30,.18) 40%,rgba(30,30,30,.45) 100%);}
-@media (max-width:767.98px){.intro__bg::after{background:linear-gradient(180deg,rgba(30,30,30,.5) 0%,rgba(30,30,30,.3) 45%,rgba(30,30,30,.6) 100%);}}
+.intro__bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(30,30,30,.55) 0%,rgba(30,30,30,.3) 42%,rgba(30,30,30,0) 72%),
+  linear-gradient(180deg,rgba(30,30,30,.5) 0%,rgba(30,30,30,.22) 42%,rgba(30,30,30,.62) 100%);}
+@media (max-width:767.98px){.intro__bg::after{background:linear-gradient(180deg,rgba(30,30,30,.6) 0%,rgba(30,30,30,.4) 45%,rgba(30,30,30,.72) 100%);}}
 .intro .container{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;}
 .intro__content{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:48px;}
 .intro__info{display:flex;flex-direction:column;gap:12px;padding:24px 24px 0;}

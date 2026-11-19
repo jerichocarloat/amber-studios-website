@@ -151,6 +151,29 @@
     });
   }
 
+  /* ---------- 7. button icon swap distance ---------- */
+  function setupButtons() {
+    function calc() {
+      qa('.btn').forEach(function (b) {
+        var icon = q('.btn__icon', b);
+        if (!icon) return;
+        b.style.setProperty('--swap', (b.clientWidth - icon.offsetWidth - 8) + 'px');
+        b.style.setProperty('--tswap', icon.offsetWidth + 'px');
+      });
+    }
+    calc();
+    window.addEventListener('resize', calc);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(calc);
+  }
+
+  /* ---------- 7b. smooth scrolling (Lenis, as on the reference site) ---------- */
+  function setupSmoothScroll() {
+    if (reduce || typeof window.Lenis !== 'function') return;
+    try {
+      window.__lenis = new window.Lenis({ autoRaf: true, anchors: true, lerp: 0.1, smoothWheel: true });
+    } catch (e) { window.__lenis = null; }
+  }
+
   /* ---------- 8. marquee duplication ---------- */
   function setupMarquees() {
     qa('.marquee__track, .ticker__track').forEach(function (track) {
@@ -170,14 +193,16 @@
   /* ---------- 9. back to top, year ---------- */
   function setupMisc() {
     qa('a[href="#top"]').forEach(function (a) {
-      a.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+      a.addEventListener('click', function (e) { e.preventDefault(); if (window.__lenis) window.__lenis.scrollTo(0); else window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
     });
     var y = q('[data-year]'); if (y) y.textContent = new Date().getFullYear();
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    setupSmoothScroll();
     setupMenu();
     setupFaq();
+    setupButtons();
     setupMarquees();
     setupMisc();
     setupReveals();
