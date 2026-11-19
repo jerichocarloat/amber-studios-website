@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 96" fill="none">
+  <defs><linearGradient id="g" x1="20" y1="14" x2="70" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2A93B"/><stop offset="1" stop-color="#C96F15"/></linearGradient></defs>
+  <g transform="translate(10 10) scale(1.2)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 60V31C9 18.3 19.3 8 32 8s23 10.3 23 23v29h-9.5V31c0-7.5-6-13.5-13.5-13.5S18.5 23.5 18.5 31v29H9Z" fill="url(#g)"/>
+    <circle cx="32" cy="33" r="7.5" fill="url(#g)"/>
+  </g>
+  <text x="100" y="60" font-family="Figtree, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="46" font-weight="500" letter-spacing="-1.2" fill="#1e1e1e">Amber</text>
+  <text x="246" y="60" font-family="Figtree, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="46" font-weight="400" letter-spacing="-1.2" fill="#1e1e1e">Studios</text>
+  <text x="102" y="82" font-family="Figtree, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="500" letter-spacing="3" fill="#C96F15">VERES PÁLNÉ UTCA · BUDAPEST</text>
+</svg>
