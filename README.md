@@ -4,6 +4,9 @@ A complete rebuild of [amberstudios.hu](https://www.amberstudios.hu/en) using th
 Stayscape Framer template as the visual and motion reference. Static HTML/CSS/JS,
 no framework, no build step required to deploy.
 
+Live preview: <https://jerichocarloat.github.io/amber-studios-website/> (GitHub Pages, deployed by
+`.github/workflows/pages.yml` on every push to `main`).
+
 ## Structure
 
 ```
